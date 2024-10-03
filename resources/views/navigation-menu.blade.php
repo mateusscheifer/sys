@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
+                        <img class="w-24" src="{{asset('logos/logo.png')}}" />
                     </a>
                 </div>
 
@@ -14,6 +14,9 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                        {{ __('login') }}
                     </x-nav-link>
                 </div>
             </div>
