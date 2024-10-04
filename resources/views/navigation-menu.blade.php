@@ -15,8 +15,8 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                        {{ __('login') }}
+                    <x-nav-link href="{{ route('tag-audio') }}" :active="request()->routeIs('tag-audio')">
+                        Tag de Áudio
                     </x-nav-link>
                 </div>
             </div>
@@ -24,6 +24,7 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                    {{dd('ola')}}
                     <div class="ms-3 relative">
                         <x-dropdown align="right" width="60">
                             <x-slot name="trigger">

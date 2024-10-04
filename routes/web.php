@@ -13,7 +13,13 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('client.dashboard');
     })->name('dashboard');
+
+    Route::get('/tag-audio', function () {
+        return view('client.audio.index');
+    })->name('tag-audio');
+
 });
