@@ -47,9 +47,11 @@
             </div>
             <div class="flex items-center justify-center mt-6 border-t-2 pt-6">
 
-                <x-button >
-                    Criar Conta
-                </x-button>
+                <a href="{{route('register')}}">
+                    <x-button type="button">
+                        Criar Conta
+                    </x-button>
+                </a>
             </div>
         </form>
     </x-authentication-card>

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('page_items', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('page_id');
+            $table->integer('type');
+            $table->string('refenrence_tag')->nullable();
             $table->timestamps();
         });
     }

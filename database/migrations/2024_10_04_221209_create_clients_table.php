@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('identification');
-            $table->string('stripe_id');
+            $table->integer('identification_type')->nullable();
+            $table->string('identification_cpf')->nullable();
+            $table->string('identification_cnpj')->nullable();
+            $table->string('stripe_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

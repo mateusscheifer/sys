@@ -6,6 +6,11 @@ Route::get('/', function () {
     return view('landing_page');
 });
 
+Route::get('/teste', function () {
+//    $a = new \App\Http\Services\VoiceCreateAiService();
+//    dd($a->generateAudio());
+});
+
 
 
 Route::middleware([
@@ -14,12 +19,9 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('client.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\Client\DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/tag-audio', function () {
-        return view('client.audio.index');
-    })->name('tag-audio');
+    Route::get('/tag-audio', [\App\Http\Controllers\Client\TagsController::class, 'audio'])->name('tag-audio');
+
 
 });

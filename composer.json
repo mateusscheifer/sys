@@ -10,7 +10,7 @@
         "laravel/jetstream": "^5.2",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "livewire/livewire": "^3.0",
+        "livewire/livewire": "^v3.5.9",
         "symfony/process": "^7.1"
     },
     "require-dev": {
