@@ -6,10 +6,7 @@ Route::get('/', function () {
     return view('landing_page');
 });
 
-Route::get('/teste', function () {
-//    $a = new \App\Http\Services\VoiceCreateAiService();
-//    dd($a->generateAudio());
-});
+Route::get('/streamAudio',[\App\Http\Controllers\AudioPlayerController::class, 'stream'])->name('streamAudio');
 
 
 
