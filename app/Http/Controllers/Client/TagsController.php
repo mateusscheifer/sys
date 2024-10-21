@@ -11,4 +11,8 @@ class TagsController extends Controller
     {
         return view('client.audio.index');
     }
+    public function audioEdit()
+    {
+        return view('client.audio.edit');
+    }
 }

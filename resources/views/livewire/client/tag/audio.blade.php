@@ -7,7 +7,16 @@
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">https://flowbite.com/docs/components/card/#default-card</p>
 
-            @livewire('components.audio-player')
+            <div class="flex justify-between">
+                <div class="w-full max-w-2xl">
+                    @livewire('components.audio-player')
+                </div>
+                <a href="{{route('tag-audio-edit',['id'=>1])}}" class="flex items-center">
+                    <x-button>
+                        Editar
+                    </x-button>
+                </a>
+            </div>
         </div>
     </div>
 

@@ -19,6 +19,7 @@ Route::middleware([
     Route::get('/dashboard', [\App\Http\Controllers\Client\DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/tag-audio', [\App\Http\Controllers\Client\TagsController::class, 'audio'])->name('tag-audio');
+    Route::get('/tag-audio/{id}', [\App\Http\Controllers\Client\TagsController::class, 'audioEdit'])->name('tag-audio-edit');
 
 
 });
