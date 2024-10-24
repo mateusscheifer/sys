@@ -18,6 +18,9 @@
                     <x-nav-link href="{{ route('tag-audio') }}" :active="request()->routeIs('tag-audio')">
                         Tag de Áudio
                     </x-nav-link>
+                    <x-nav-link href="{{ route('config') }}" :active="request()->routeIs('config')">
+                        Configurações
+                    </x-nav-link>
                 </div>
             </div>
 

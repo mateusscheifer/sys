@@ -17,6 +17,7 @@ Route::middleware([
 ])->group(function () {
 
     Route::get('/dashboard', [\App\Http\Controllers\Client\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/config', [\App\Http\Controllers\Client\DashboardController::class, 'config'])->name('config');
 
     Route::get('/tag-audio', [\App\Http\Controllers\Client\TagsController::class, 'audio'])->name('tag-audio');
     Route::get('/tag-audio/{id}', [\App\Http\Controllers\Client\TagsController::class, 'audioEdit'])->name('tag-audio-edit');

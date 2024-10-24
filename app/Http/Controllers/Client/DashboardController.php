@@ -11,4 +11,8 @@ class DashboardController extends Controller
     {
         return view('client.dashboard');
     }
+    public function config()
+    {
+        return view('client.config');
+    }
 }

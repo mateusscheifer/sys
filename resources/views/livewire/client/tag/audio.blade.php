@@ -9,7 +9,7 @@
 
             <div class="flex justify-between">
                 <div class="w-full max-w-2xl">
-                    @livewire('components.audio-player')
+                    @livewire('components.audio-player',['layout'=>1])
                 </div>
                 <a href="{{route('tag-audio-edit',['id'=>1])}}" class="flex items-center">
                     <x-button>
