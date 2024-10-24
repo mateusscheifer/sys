@@ -1,6 +1,6 @@
 
 <div>
-<<div class="p-6">
+<div class="p-6">
     <div class=" w-full bg-white rounded-lg  dark:bg-gray-800">
         <div class="shadow rounded-lg p-4 mt-4">
             <div class="flex justify-between p-4 md:p-6 pb-0 md:pb-0">

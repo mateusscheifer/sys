@@ -23,7 +23,7 @@
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+{{--            @livewire('navigation-menu')--}}
 
             <!-- Page Heading -->
             @if (isset($header))
@@ -89,7 +89,7 @@
                         <a
                             href="{{ route('dashboard') }}"
                             class="flex items-center p-2 font-medium rounded-lg transition duration-75 group
-            {{ $active ? 'text-green600 bg-gray-100 dark:bg-gray-700 dark:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700' }}"
+                            {{ $active ? 'text-green600 bg-gray-100 dark:bg-gray-700 dark:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700' }}"
                         >
                             <svg
                                 aria-hidden="true"
@@ -102,8 +102,8 @@
                                 <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
                             </svg>
                             <span class="ml-3 {{ $active ? 'text-green600 dark:text-gray-100' : 'hover:text-gray-900 dark:hover:text-gray-100' }}">
-            Dashboard
-        </span>
+                                Dashboard
+                            </span>
                         </a>
                     </li>
                     <li>
@@ -152,7 +152,7 @@
                                 <a
                                     href="{{ route('tag-audio') }}"
                                     class="flex items-center p-2 pl-11 w-full text-base font-medium rounded-lg transition duration-75 group
-                {{ request()->routeIs('tag-audio') ? 'text-green600 bg-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-white'  : 'text-gray-900 bg-gray-100 dark:bg-gray-700 dark:text-white'  }}"
+                                    {{ request()->routeIs('tag-audio') ? 'text-green600 bg-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-white'  : 'text-gray-900 bg-gray-100 dark:bg-gray-700 dark:text-white'  }}"
                                 >
                                     Tags de Áudio
                                 </a>
@@ -255,10 +255,10 @@
             </div>
 
         </aside>
-        <!-- faz o restante dos componentes rodarem dentro da appshell -->
-        <main class="p-4 md:ml-64 h-auto pt-20">
-            {{ $slot }}
-        </main>
+{{--        <!-- faz o restante dos componentes rodarem dentro da appshell -->--}}
+{{--        <main class="p-4 md:ml-64 h-auto pt-20">--}}
+{{--            {{ $slot }}--}}
+{{--        </main>--}}
     </div>
 
 

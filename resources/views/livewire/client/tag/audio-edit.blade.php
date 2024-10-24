@@ -61,41 +61,43 @@
             </div>
         </div>
     </div>
-</div>
 
-@push('scripts')
-    <!-- Incluindo Highlight.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+    @push('scripts')
+        <!-- Incluindo Highlight.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
 
-            function decodeHtmlEntities(str) {
-                return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-            }
-            const codeToHighlights = `
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+
+                function decodeHtmlEntities(str) {
+                    return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+                }
+                const codeToHighlights = `
                 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"&gt;&lt;/script&gt;
             `;
-            const codeToHighlight = decodeHtmlEntities(codeToHighlights);
+                const codeToHighlight = decodeHtmlEntities(codeToHighlights);
 
-            document.getElementById('highlighted-code-block').innerHTML = hljs.highlight(codeToHighlight, {language: 'html'}).value;
+                document.getElementById('highlighted-code-block').innerHTML = hljs.highlight(codeToHighlight, {language: 'html'}).value;
 
-            hljs.highlightAll();
+                hljs.highlightAll();
 
-            document.getElementById('copy-code-btn').addEventListener('click', function() {
-                const tempTextarea = document.createElement('textarea');
-                tempTextarea.value = codeToHighlight.trim();
-                document.body.appendChild(tempTextarea);
-                tempTextarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempTextarea);
+                document.getElementById('copy-code-btn').addEventListener('click', function() {
+                    const tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = codeToHighlight.trim();
+                    document.body.appendChild(tempTextarea);
+                    tempTextarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempTextarea);
 
-                // Feedback visual
-                this.textContent = 'Copiado!';
-                setTimeout(() => {
-                    this.textContent = 'Copiar';
-                }, 2000);
+                    // Feedback visual
+                    this.textContent = 'Copiado!';
+                    setTimeout(() => {
+                        this.textContent = 'Copiar';
+                    }, 2000);
+                });
             });
-        });
-    </script>
-@endpush
+        </script>
+    @endpush
+</div>
+
