@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-<div class="p-6">
-=======
+
 <div>
-
 <<div class="p-6">
-
->>>>>>> master
     <div class=" w-full bg-white rounded-lg  dark:bg-gray-800">
         <div class="shadow rounded-lg p-4 mt-4">
             <div class="flex justify-between p-4 md:p-6 pb-0 md:pb-0">
@@ -154,11 +149,8 @@
         </div>
 
     </div>
-<<<<<<< HEAD
 
-=======
     </div>
->>>>>>> master
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
         const options = {

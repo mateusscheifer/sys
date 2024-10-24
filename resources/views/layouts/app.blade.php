@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-=======
+
 <html x-data="{ darkMode: false }" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
->>>>>>> master
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +19,6 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-<<<<<<< HEAD
     <body class="font-sans antialiased">
         <x-banner />
 
@@ -42,8 +39,6 @@
                 {{ $slot }}
             </main>
         </div>
-=======
-
 
 
     <!-- Tudo isso aqui é o Appshell -->
@@ -267,15 +262,12 @@
     </div>
 
 
->>>>>>> master
 
         @stack('modals')
 
         @livewireScripts
 
-<<<<<<< HEAD
         @stack('scripts')
-=======
 
         <script>
             const audio = document.getElementById('audio');
@@ -341,6 +333,5 @@
                 return `${minutes}:${secs < 10 ? '0' + secs : secs}`;
             }
         </script>
->>>>>>> master
     </body>
 </html>

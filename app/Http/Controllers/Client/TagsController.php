@@ -11,11 +11,9 @@ class TagsController extends Controller
     {
         return view('client.audio.index');
     }
-<<<<<<< HEAD
+
     public function audioEdit()
     {
         return view('client.audio.edit');
     }
-=======
->>>>>>> master
 }

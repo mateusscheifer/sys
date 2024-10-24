@@ -10,11 +10,7 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-<<<<<<< HEAD
-
-=======
     darkMode: 'class',
->>>>>>> master
     theme: {
         extend: {
             fontFamily: {
@@ -25,12 +21,8 @@ export default {
                 secondary: '#448a55', // Verde escuro
                 black: '#000000', // Preto para textos principais
                 grayLight: '#F5F5F5', // Cinza claro para fundos
-<<<<<<< HEAD
-                grayMedium: '#B0B0B0', // Cinza médio para textos secundários
-=======
                 grayMedium: '#B0B0B0',
                 green600: '#057A55',
->>>>>>> master
             },
         },
     },
