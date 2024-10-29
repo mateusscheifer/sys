@@ -169,9 +169,8 @@
                         <a
                             href="{{ route('api') }}"
                             class="flex items-center p-2 font-medium rounded-lg transition duration-75 group
-            {{ $active ? 'text-green600 bg-gray-100 dark:bg-gray-700 dark:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700' }}"
+                            {{ $active ? 'text-green600 bg-gray-100 dark:bg-gray-700 dark:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700' }}"
                         >
-
 
                             <svg
                                 class="w-6 h-6 {{ $active ? 'text-[#046C4E] dark:text-gray-400' : 'text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white' }}"
@@ -191,9 +190,20 @@
                         </a>
                     </li>
 
-
-                    </li>
-
+                    <li>
+                        @php
+                            $active = request()->routeIs('config') ? true : false;
+                        @endphp
+                        <a
+                            href="{{ route('config') }}"
+                            class="flex items-center p-2 font-medium rounded-lg transition duration-75 group
+                            {{ $active ? 'text-green600 bg-gray-100 dark:bg-gray-700 dark:text-white' : 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700' }}"
+                        >
+                            <i class="fa-solid fa-gear"></i>
+                            <span class="flex-1 ml-3 text-left whitespace-nowrap"
+                            >Configurações</span
+                            >
+                        </a>
                     </li>
                 </ul>
                 <ul
@@ -265,73 +275,78 @@
 
         @stack('modals')
 
-        @livewireScripts
 
+
+        @livewireScripts
+        <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
+{{--        <x-livewire-alert::flash />--}}
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <x-livewire-alert::scripts />
         @stack('scripts')
 
-        <script>
-            const audio = document.getElementById('audio');
-            const playPauseButton = document.getElementById('play-pause');
-            const rewindButton = document.getElementById('rewind');
-            const forwardButton = document.getElementById('forward');
-            const progressBar = document.getElementById('progress-bar');
-            const currentTimeLabel = document.getElementById('current-time');
-            const durationLabel = document.getElementById('duration');
-            const volumeBar = document.getElementById('volume-bar');
-            const volumeDownButton = document.getElementById('volume-down');
-            const volumeUpButton = document.getElementById('volume-up');
+{{--        <script>--}}
+{{--            const audio = document.getElementById('audio');--}}
+{{--            const playPauseButton = document.getElementById('play-pause');--}}
+{{--            const rewindButton = document.getElementById('rewind');--}}
+{{--            const forwardButton = document.getElementById('forward');--}}
+{{--            const progressBar = document.getElementById('progress-bar');--}}
+{{--            const currentTimeLabel = document.getElementById('current-time');--}}
+{{--            const durationLabel = document.getElementById('duration');--}}
+{{--            const volumeBar = document.getElementById('volume-bar');--}}
+{{--            const volumeDownButton = document.getElementById('volume-down');--}}
+{{--            const volumeUpButton = document.getElementById('volume-up');--}}
 
-            playPauseButton.addEventListener('click', () => {
-                if (audio.paused) {
-                    audio.play();
-                    playPauseButton.textContent = 'Pause';
-                } else {
-                    audio.pause();
-                    playPauseButton.textContent = 'Play';
-                }
-            });
+{{--            playPauseButton.addEventListener('click', () => {--}}
+{{--                if (audio.paused) {--}}
+{{--                    audio.play();--}}
+{{--                    playPauseButton.textContent = 'Pause';--}}
+{{--                } else {--}}
+{{--                    audio.pause();--}}
+{{--                    playPauseButton.textContent = 'Play';--}}
+{{--                }--}}
+{{--            });--}}
 
-            rewindButton.addEventListener('click', () => {
-                audio.currentTime = Math.max(0, audio.currentTime - 10);
-            });
+{{--            rewindButton.addEventListener('click', () => {--}}
+{{--                audio.currentTime = Math.max(0, audio.currentTime - 10);--}}
+{{--            });--}}
 
-            forwardButton.addEventListener('click', () => {
-                audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
-            });
+{{--            forwardButton.addEventListener('click', () => {--}}
+{{--                audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);--}}
+{{--            });--}}
 
-            audio.addEventListener('loadedmetadata', () => {
-                durationLabel.textContent = formatTime(audio.duration);
-            });
+{{--            audio.addEventListener('loadedmetadata', () => {--}}
+{{--                durationLabel.textContent = formatTime(audio.duration);--}}
+{{--            });--}}
 
-            audio.addEventListener('timeupdate', () => {
-                progressBar.value = (audio.currentTime / audio.duration) * 100;
-                currentTimeLabel.textContent = formatTime(audio.currentTime);
-            });
+{{--            audio.addEventListener('timeupdate', () => {--}}
+{{--                progressBar.value = (audio.currentTime / audio.duration) * 100;--}}
+{{--                currentTimeLabel.textContent = formatTime(audio.currentTime);--}}
+{{--            });--}}
 
-            progressBar.addEventListener('input', () => {
-                const newTime = (progressBar.value / 100) * audio.duration;
-                audio.currentTime = newTime;
-            });
+{{--            progressBar.addEventListener('input', () => {--}}
+{{--                const newTime = (progressBar.value / 100) * audio.duration;--}}
+{{--                audio.currentTime = newTime;--}}
+{{--            });--}}
 
-            volumeBar.addEventListener('input', () => {
-                audio.volume = volumeBar.value / 100;
-            });
+{{--            volumeBar.addEventListener('input', () => {--}}
+{{--                audio.volume = volumeBar.value / 100;--}}
+{{--            });--}}
 
-            volumeDownButton.addEventListener('click', () => {
-                volumeBar.value = Math.max(0, volumeBar.value - 10);
-                audio.volume = volumeBar.value / 100;
-            });
+{{--            volumeDownButton.addEventListener('click', () => {--}}
+{{--                volumeBar.value = Math.max(0, volumeBar.value - 10);--}}
+{{--                audio.volume = volumeBar.value / 100;--}}
+{{--            });--}}
 
-            volumeUpButton.addEventListener('click', () => {
-                volumeBar.value = Math.min(100, volumeBar.value + 10);
-                audio.volume = volumeBar.value / 100;
-            });
+{{--            volumeUpButton.addEventListener('click', () => {--}}
+{{--                volumeBar.value = Math.min(100, volumeBar.value + 10);--}}
+{{--                audio.volume = volumeBar.value / 100;--}}
+{{--            });--}}
 
-            function formatTime(seconds) {
-                const minutes = Math.floor(seconds / 60);
-                const secs = Math.floor(seconds % 60);
-                return `${minutes}:${secs < 10 ? '0' + secs : secs}`;
-            }
-        </script>
+{{--            function formatTime(seconds) {--}}
+{{--                const minutes = Math.floor(seconds / 60);--}}
+{{--                const secs = Math.floor(seconds % 60);--}}
+{{--                return `${minutes}:${secs < 10 ? '0' + secs : secs}`;--}}
+{{--            }--}}
+{{--        </script>--}}
     </body>
 </html>

@@ -8,13 +8,30 @@
         <div class=" space-y-3">
             <div class="mt-4">
                 <x-label class="text-[16px]" value="URL do site" />
-                <x-input  class="block mt-1 w-full" />
+                <x-input wire:model="newUrl" class="block mt-1 w-full" />
+                @error('newUrl')
+                    <span class="text-sm text-red-700">{{$message}}</span>
+                @enderror
             </div>
             <div class="flex justify-end mt-4">
-                <x-button class="">
+                <x-button wire:click="save">
                     Salvar
                 </x-button>
             </div>
         </div>
+        <table class="table-auto w-full mt-4">
+            <thead>
+                <tr>
+                    <th class="text-start">URL</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>http://127.0.0.1:8000/config</td>
+                    <td> <button>deletar</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
