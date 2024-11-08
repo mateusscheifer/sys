@@ -12,21 +12,23 @@ class Config extends Component
 {
     use LivewireAlert;
 
-    private $user;
+    protected $user;
 
     public $newUrl = '';
     public $urls;
+    public $showDeleteUrlModal = false;
 
 
     public function mount()
     {
-        $this->user = Auth::user()->load('client');
-
+        $this->user = Auth::user()->load('client.urls');
         $this->urls = $this->user->client->urls;
     }
 
     public function save()
     {
+        $this->user = Auth::user()->load('client');
+
         $this->validate([
             'newUrl' => 'required|url',
         ],[
@@ -34,7 +36,20 @@ class Config extends Component
             'newUrl.url'=>'Informe uma URL valida',
         ]);
 
+        $url = new ClientUrl();
+        $url->client_id = $this->user->client->id;
+        $url->url = $this->newUrl;
+        $url->active = true;
+        $url->save();
+
+        $this->mount();
         $this->alert('success', 'Link salvo com sucesso!');
+    }
+
+    public function delete()
+    {
+        $this->showDeleteUrlModal = true;
+
     }
 
     public function render()

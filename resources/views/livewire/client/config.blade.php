@@ -27,11 +27,35 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach($urls as $url)
                 <tr>
-                    <td>http://127.0.0.1:8000/config</td>
-                    <td> <button>deletar</button></td>
+                    <td>{{$url->url}}</td>
+                    <td> <button wire:click="delete">deletar</button></td>
                 </tr>
+            @endforeach
+
             </tbody>
         </table>
     </div>
+
+    <x-confirmation-modal wire:model="showDeleteUrlModal">
+        <x-slot name="title">
+            Delete Account
+        </x-slot>
+
+        <x-slot name="content">
+            Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted.
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                Nevermind
+            </x-secondary-button>
+
+            <x-danger-button class="ml-2" wire:click="deleteUser" wire:loading.attr="disabled">
+                Delete Account
+            </x-danger-button>
+        </x-slot>
+    </x-confirmation-modal>
+
 </div>
