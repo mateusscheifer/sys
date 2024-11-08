@@ -15,11 +15,15 @@ class PageInfoController extends Controller
         ]);
 
         $decodedUrl = urldecode($validated['url']);
+        $origin = $request->headers->get('origin') ?? $request->headers->get('referer');
 
         $a = new Teste();
         $a->data = json_encode([
             'title' => $validated['title'],
             'url' => $decodedUrl,
+        ]);
+        $a->data1 = json_encode([
+            'validate' => $origin
         ]);
         $a->save();
 
