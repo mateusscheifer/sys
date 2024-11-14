@@ -30,7 +30,7 @@
             @foreach($urls as $url)
                 <tr>
                     <td>{{$url->url}}</td>
-                    <td> <button wire:click="delete">deletar</button></td>
+                    <td> <button wire:click="delete({{$url->id}})">deletar</button></td>
                 </tr>
             @endforeach
 
@@ -40,20 +40,20 @@
 
     <x-confirmation-modal wire:model="showDeleteUrlModal">
         <x-slot name="title">
-            Delete Account
+            Deletar URL
         </x-slot>
 
         <x-slot name="content">
-            Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted.
+            Nenhum conteúdo desta Link será mais captado
         </x-slot>
 
         <x-slot name="footer">
-            <x-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
-                Nevermind
+            <x-secondary-button wire:click="$toggle('showDeleteUrlModal')" wire:loading.attr="disabled">
+                Cancelar
             </x-secondary-button>
 
-            <x-danger-button class="ml-2" wire:click="deleteUser" wire:loading.attr="disabled">
-                Delete Account
+            <x-danger-button class="ml-2" wire:click="deleteUrl" wire:loading.attr="disabled">
+                Deletar
             </x-danger-button>
         </x-slot>
     </x-confirmation-modal>

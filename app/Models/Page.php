@@ -5,9 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ClientUrl extends Model
+class Page extends Model
 {
     use SoftDeletes;
-
-    protected $table = 'client_urls';
 }

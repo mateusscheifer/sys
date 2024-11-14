@@ -16,6 +16,7 @@ class Config extends Component
 
     public $newUrl = '';
     public $urls;
+    public $urlDelete;
     public $showDeleteUrlModal = false;
 
 
@@ -46,10 +47,19 @@ class Config extends Component
         $this->alert('success', 'Link salvo com sucesso!');
     }
 
-    public function delete()
+    public function delete($id)
     {
         $this->showDeleteUrlModal = true;
+        $this->urlDelete = $this->urls->find($id);
 
+    }
+    public function deleteUrl()
+    {
+        $this->showDeleteUrlModal = false;
+        $this->urlDelete->delete();
+
+        $this->mount();
+        $this->alert('success', 'Link excluido com sucesso!');
     }
 
     public function render()

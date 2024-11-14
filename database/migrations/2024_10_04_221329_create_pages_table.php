@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
+            $table->integer('client_url_id')->nullable();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->string('description')->nullable();
             $table->string('url')->nullable();
+            $table->integer('status')->nullable(); //informa se a pagina esta ativa para receber os dados enviados pela tag
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
