@@ -25,7 +25,7 @@ class PageInfoController extends Controller
         $clientUrl = ClientUrl::where('url','LIKE', '%'.$origin.'%')->first();
 
         if (isset($clientUrl->id)) {
-            $page = Page::where('url', $decodedUrl)->first();
+            $page = Page::where('url', $decodedUrl)->where('client_url_id', $clientUrl->id)->first();
             if (isset($page->id)){
                 return response()->json($page, 200);
             }else{

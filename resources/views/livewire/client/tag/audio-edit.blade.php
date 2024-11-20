@@ -1,10 +1,10 @@
 <div class="space-y-5">
     <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative">
         <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Newsletter de Segunda</h5>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$page->title}}</h5>
         </a>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            https://flowbite.com/docs/components/card/#default-card
+            {{$page->url}}
         </p>
         <div class="relative">
             <pre class="bg-gray-100 p-6 pb-0 rounded-lg border border-gray-300">
@@ -74,7 +74,7 @@
                     return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
                 }
                 const codeToHighlights = `
-                &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"&gt;&lt;/script&gt;
+                &lt;script src="{{url('/script/view.js')}}"&gt;&lt;/script&gt;
             `;
                 const codeToHighlight = decodeHtmlEntities(codeToHighlights);
 

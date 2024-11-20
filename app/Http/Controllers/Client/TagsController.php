@@ -12,8 +12,8 @@ class TagsController extends Controller
         return view('client.audio.index');
     }
 
-    public function audioEdit()
+    public function audioEdit($id)
     {
-        return view('client.audio.edit');
+        return view('client.audio.edit',['id' => $id]);
     }
 }

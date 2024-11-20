@@ -10,4 +10,9 @@ class ClientUrl extends Model
     use SoftDeletes;
 
     protected $table = 'client_urls';
+
+    public function pages()
+    {
+        return $this->hasMany(Page::class, 'client_url_id', 'id');
+    }
 }

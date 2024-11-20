@@ -77,7 +77,7 @@
                             </svg>
                         </button>
                     </div>
-                    <button id="play-pause" type="button" style="border:1px solid #2d3748;background: white; margin-top: -8px;margin-bottom: -8px; margin-left: auto;margin-right: auto;
+                    <button id="play-pause" type="button" style="border:1px solid #2d3748;background: white; display: flex; justify-content: center;align-items: center;align-content: center;
                         width: 89px; height: 80px; border-radius: 1000px" aria-label="Pause">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"> <polygon points="5,3 19,12 5,21" fill="black"/> </svg>
                     </button>
