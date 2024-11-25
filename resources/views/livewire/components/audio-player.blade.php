@@ -8,9 +8,9 @@
                     <div class="flex items-center space-x-4">
                         <img src="https://img.freepik.com/free-psd/square-flyer-template-maximalist-business_23-2148524497.jpg?w=1800&t=st=1699458420~exp=1699459020~hmac=5b00d72d6983d04966cc08ccd0fc1f80ad0d7ba75ec20316660e11efd18133cd" alt="" width="88" height="88" class="flex-none rounded-lg bg-slate-100" loading="lazy" />
                         <div class="min-w-0 flex-auto space-y-1 font-semibold">
-                            <p class="text-cyan-500 dark:text-cyan-400 text-sm leading-6">
-                                <abbr title="Track">Track:</abbr> 05
-                            </p>
+{{--                            <p class="text-cyan-500 dark:text-cyan-400 text-sm leading-6">--}}
+{{--                                <abbr title="Track">Track:</abbr> 05--}}
+{{--                            </p>--}}
                             <h2 class="text-slate-500 dark:text-slate-400 text-sm leading-6 truncate">
                                 Music: New Album The Lorem
                             </h2>

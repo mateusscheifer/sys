@@ -13,9 +13,17 @@ return new class extends Migration
     {
         Schema::create('audios', function (Blueprint $table) {
             $table->id();
-            $table->string('path')->nullable();
-            $table->integer('generation_type')->nullable();
+            $table->integer('page_id')->nullable();
+            $table->string('file_path')->nullable();
+            $table->string('file_name')->nullable();
+            $table->string('file_size')->nullable();
+            $table->string('file_extension')->nullable();
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('tag_id_html')->nullable();
+            $table->integer('generation_type')->nullable();// nativo ou ia
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

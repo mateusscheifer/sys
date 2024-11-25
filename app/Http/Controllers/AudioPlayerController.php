@@ -8,7 +8,7 @@ class AudioPlayerController extends Controller
 {
     public function stream()
     {
-        $path = storage_path("app/teste.mp3");
+        $path = storage_path("app/public/audio/DQHJFVW003E5SyNGvffICdqIKAbNJp0IX9mdgHHy.mp3");
 
         if (!file_exists($path)) {
             abort(404);

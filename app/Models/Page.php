@@ -13,4 +13,9 @@ class Page extends Model
     {
         return $this->belongsTo(ClientUrl::class, 'client_url_id', 'id');
     }
+
+    public function audios()
+    {
+        return $this->hasMany(Audio::class, 'page_id', 'id');
+    }
 }

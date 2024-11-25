@@ -6,7 +6,7 @@
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
             {{$page->url}}
         </p>
-        <div class="relative">
+        <div class="relative" wire:ignore>
             <pre class="bg-gray-100 p-6 pb-0 rounded-lg border border-gray-300">
                 <code id="highlighted-code-block" class="language-html rounded-lg p-0">
 
@@ -33,7 +33,7 @@
                 @livewire('components.audio-player')
             </div>
             <div class="flex justify-end mt-4">
-                <x-button class="">
+                <x-button class=""  wire:click="$toggle('showEditUrlModal')">
                     Editar áudio
                 </x-button>
             </div>
@@ -61,6 +61,140 @@
             </div>
         </div>
     </div>
+
+
+
+    <x-dialog-modal wire:model="showEditUrlModal">
+        <x-slot name="title">
+            Editar URL
+        </x-slot>
+
+        <x-slot name="content">
+            <div class="space-y-4">
+                <div>
+                    <x-label for="url" value="Título " />
+                    <x-input
+                        id="url"
+                        type="text"
+                        class="mt-1 block w-full"
+                        wire:model.defer="url"
+                        placeholder="Digite o novo Título" />
+                    <x-input-error for="url" class="mt-2" />
+                </div>
+                <div>
+                    <x-label for="url" value="Descrição" />
+                    <x-input
+                        id="url"
+                        type="text"
+                        class="mt-1 block w-full"
+                        wire:model.defer="url"
+                        placeholder="Digite a nova Descrição" />
+                    <x-input-error for="url" class="mt-2" />
+                </div>
+
+                <div>
+                    <x-label for="url" value="Imagem" />
+                    <div
+                        x-data="{ isDragging: false }"
+                        x-on:dragover.prevent="isDragging = true"
+                        x-on:dragleave.prevent="isDragging = false"
+                        x-on:drop.prevent="isDragging = false; $refs.fileInputImage.files = $event.dataTransfer.files; $refs.fileInputImage.dispatchEvent(new Event('change'))"
+                        class="border-2 border-dashed rounded-lg p-6 text-center"
+                        :class="{ 'border-blue-500 bg-blue-50': isDragging, 'border-gray-300': !isDragging }"
+                    >
+                        <p class="mb-4 text-gray-500">
+                            Solte o arquivo da imagem de fundo ou clique para fazer upload
+                        </p>
+                        <button
+                            type="button"
+                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                            x-on:click="$refs.fileInputImage.click()"
+                        >
+                            Selecionar Arquivo
+                        </button>
+
+                        <input
+                            type="file"
+                            class="hidden"
+                            wire:model="fileImage"
+                            x-ref="fileInputImage"
+                            accept="audio/*"
+                        />
+
+                        @error('fileImage')
+                        <span class="text-red-500">{{ $message }}</span>
+                        @enderror
+
+                        <div wire:loading wire:target="file" class="mt-4 text-blue-500">
+                            Carregando arquivo...
+                        </div>
+
+                        @if ($fileImage)
+                            <p class="mt-4 text-gray-700">
+                                Arquivo carregado: {{ $file->getClientOriginalName() }}
+                            </p>
+                        @endif
+                    </div>
+                </div>
+
+                <div>
+                    <x-label for="url" value="Audio" />
+                    <div
+                        x-data="{ isDragging: false }"
+                        x-on:dragover.prevent="isDragging = true"
+                        x-on:dragleave.prevent="isDragging = false"
+                        x-on:drop.prevent="isDragging = false; $refs.fileInput.files = $event.dataTransfer.files; $refs.fileInput.dispatchEvent(new Event('change'))"
+                        class="border-2 border-dashed rounded-lg p-6 text-center"
+                        :class="{ 'border-blue-500 bg-blue-50': isDragging, 'border-gray-300': !isDragging }"
+                    >
+                        <p class="mb-4 text-gray-500">
+                            Solte o arquivo de áudio aqui ou clique para fazer upload
+                        </p>
+                        <button
+                            type="button"
+                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                            x-on:click="$refs.fileInput.click()"
+                        >
+                            Selecionar Arquivo
+                        </button>
+
+                        <input
+                            type="file"
+                            class="hidden"
+                            wire:model="file"
+                            x-ref="fileInput"
+                            accept="audio/*"
+                        />
+
+                        @error('file')
+                        <span class="text-red-500">{{ $message }}</span>
+                        @enderror
+
+                        <div wire:loading wire:target="file" class="mt-4 text-blue-500">
+                            Carregando arquivo...
+                        </div>
+
+                        @if ($file)
+                            <p class="mt-4 text-gray-700">
+                                Arquivo carregado: {{ $file->getClientOriginalName() }}
+                            </p>
+                        @endif
+                    </div>
+                </div>
+
+            </div>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-secondary-button wire:click="$toggle('showEditUrlModal')" wire:loading.attr="disabled">
+                Cancelar
+            </x-secondary-button>
+
+            <x-button class="ml-2" wire:click="uploadAudio" wire:loading.attr="disabled">
+                Salvar
+            </x-button>
+        </x-slot>
+    </x-dialog-modal>
 
 
     @push('scripts')
